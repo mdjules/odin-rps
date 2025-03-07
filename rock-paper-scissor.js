@@ -1,5 +1,7 @@
 
 let computerChoice = Math.random();
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice () {
     if (computerChoice < 0.33) {
