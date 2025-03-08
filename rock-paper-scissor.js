@@ -66,6 +66,14 @@ function playGame () {
     console.log("Computer score is: " + computerScore);
     ++counter;
     }
+
+    if (humanScore > computerScore) {
+        console.log("Congrats you beat the computer!");
+    }
+        else {
+            console.log("The computer beat you...better luck next time.");
+        };
+    ;
 };
 
 
