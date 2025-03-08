@@ -55,19 +55,18 @@ function playRound (humanChoice, computerChoice) {
 /*let humanSelection = getHumanChoice();
 let computerSelection = getComputerChoice();*/
 
+counter = 0
 
 function playGame () {
+    while (counter < 6) {
     let humanSelection = getHumanChoice();
     let computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
     console.log("Human score is: " + humanScore);
     console.log("Computer score is: " + computerScore);
+    ++counter;
+    }
 };
 
 
-playGame();
-playGame();
-playGame();
-playGame();
-playGame();
 playGame();
