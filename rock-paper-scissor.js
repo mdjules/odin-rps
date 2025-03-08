@@ -4,14 +4,12 @@ let computerScore = 0;
 
 function getComputerChoice () {
     let computerChoice = Math.random();
-    console.log(computerChoice);
     if (computerChoice < 0.33) {
         return "Rock";
     } 
-    else if (computerChoice >= 0.33 && computerChoice < 0.66)
-        {return "Paper"
-
-        }
+    else if (computerChoice >= 0.33 && computerChoice < 0.66){
+        return "Paper"
+    }
     else {
         return "Scissors"
     }
@@ -53,11 +51,23 @@ function playRound (humanChoice, computerChoice) {
     }
 };
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+// code not needed, initiated in playGame function and auto calls choice functions
+/*let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();*/
 
 
-playRound(humanSelection, computerSelection);   
+function playGame () {
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+    console.log("Human score is: " + humanScore);
+    console.log("Computer score is: " + computerScore);
+};
 
-console.log("Human score is: " + humanScore);
-console.log("Computer score is: " + computerScore);
+
+playGame();
+playGame();
+playGame();
+playGame();
+playGame();
+playGame();
