@@ -1,9 +1,10 @@
 
-let computerChoice = Math.random();
 let humanScore = 0;
 let computerScore = 0;
 
 function getComputerChoice () {
+    let computerChoice = Math.random();
+    console.log(computerChoice);
     if (computerChoice < 0.33) {
         return "Rock";
     } 
@@ -17,10 +18,6 @@ function getComputerChoice () {
 
 };
 
-console.log(getComputerChoice());
-
-console.log(computerChoice);
-
 function getHumanChoice () {
    let humanChoice = prompt("Choose rock, paper, or scissors: ").toLowerCase();
    if (humanChoice == "rock") {
@@ -31,6 +28,36 @@ function getHumanChoice () {
     return "Scissors"
    }
     
-}
+};
 
-console.log(getHumanChoice());
+function playRound (humanChoice, computerChoice) {
+    let lowerCaseHumanChoice = humanChoice.toLowerCase();
+    if (lowerCaseHumanChoice == "rock" && computerChoice == "Scissors") {
+        console.log("You win! Rock beats scissors!");
+        humanScore = ++humanScore;
+    }
+    else if (lowerCaseHumanChoice == "paper" && computerChoice == "Rock") {
+        console.log("You win! Paper beats rock!");
+        humanScore = ++humanScore;
+    }
+    else if (lowerCaseHumanChoice == "scissors" && computerChoice == "Paper") {
+        console.log("You win! Scissors beats paper!");
+        humanScore = ++humanScore;
+    }
+    else if (lowerCaseHumanChoice == computerChoice.toLowerCase()) {
+        console.log("Draw! Go again!");
+    }
+    else {
+        console.log("You lose! Computer chose " + computerChoice + ". " + computerChoice + " beats " + humanChoice);
+        computerScore = ++computerScore
+    }
+};
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+
+playRound(humanSelection, computerSelection);   
+
+console.log("Human score is: " + humanScore);
+console.log("Computer score is: " + computerScore);
