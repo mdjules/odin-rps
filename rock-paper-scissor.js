@@ -51,10 +51,6 @@ function playRound (humanChoice, computerChoice) {
     }
 };
 
-// code not needed, initiated in playGame function and auto calls choice functions
-/*let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();*/
-
 counter = 0
 
 function playGame () {
