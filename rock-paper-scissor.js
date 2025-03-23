@@ -16,7 +16,9 @@ function getComputerChoice () {
 
 };
 
-function getHumanChoice () {
+//unnessary code. The buttons now serve as the function for getting humanc choice
+
+/*function getHumanChoice () {
    let humanChoice = prompt("Choose rock, paper, or scissors: ").toLowerCase();
    if (humanChoice == "rock") {
     return "Rock"
@@ -26,23 +28,22 @@ function getHumanChoice () {
     return "Scissors"
    }
     
-};
+};*/
 
 function playRound (humanChoice, computerChoice) {
-    let lowerCaseHumanChoice = humanChoice.toLowerCase();
-    if (lowerCaseHumanChoice == "rock" && computerChoice == "Scissors") {
+    if (humanChoice == "Rock" && computerChoice == "Scissors") {
         console.log("You win! Rock beats scissors!");
         humanScore = ++humanScore;
     }
-    else if (lowerCaseHumanChoice == "paper" && computerChoice == "Rock") {
+    else if (humanChoice == "Paper" && computerChoice == "Rock") {
         console.log("You win! Paper beats rock!");
         humanScore = ++humanScore;
     }
-    else if (lowerCaseHumanChoice == "scissors" && computerChoice == "Paper") {
+    else if (humanChoice == "Scissors" && computerChoice == "Paper") {
         console.log("You win! Scissors beats paper!");
         humanScore = ++humanScore;
     }
-    else if (lowerCaseHumanChoice == computerChoice.toLowerCase()) {
+    else if (humanChoice == computerChoice) {
         console.log("Draw! Go again!");
     }
     else {
@@ -51,17 +52,17 @@ function playRound (humanChoice, computerChoice) {
     }
 };
 
-counter = 0
+//counter = 0
 
 function playGame () {
-    while (counter < 6) {
-    let humanSelection = getHumanChoice();
+    //while (counter < 6) {
+    //let humanSelection = getHumanChoice();
     let computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
     console.log("Human score is: " + humanScore);
     console.log("Computer score is: " + computerScore);
-    ++counter;
-    }
+    //++counter;
+    //}
 
     if (humanScore > computerScore) {
         console.log("Congrats you beat the computer!");
@@ -72,6 +73,30 @@ function playGame () {
     ;
 };
 
-// test branch
+//rock button event listener uses playRound() as callback function
 
-playGame();
+const rockBtn = document.querySelector("#rockBtn");
+
+rockBtn.addEventListener("click", function() {
+    playRound("Rock", getComputerChoice())
+});
+
+//paper button event listener uses playRound() as callback function
+
+const paperBtn = document.querySelector("#paperBtn");
+
+paperBtn.addEventListener("click", function() {
+    playRound("Paper", getComputerChoice())
+});
+
+//scissors button event listener uses playRound() as callback function
+
+const scissorsBtn = document.querySelector("#scissorsBtn");
+
+scissorsBtn.addEventListener("click", function() {
+    playRound("Scissors", getComputerChoice())
+});
+
+//playGame();
+
+//playRound();
