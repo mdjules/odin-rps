@@ -33,24 +33,34 @@ function getComputerChoice () {
 function playRound (humanChoice, computerChoice) {
     
     if (humanChoice == "Rock" && computerChoice == "Scissors") {
-        console.log("You win! Rock beats scissors!");
+        //console.log("You win! Rock beats scissors!");
+        let roundOutcome = document.querySelector("#roundOutcome");
+        roundOutcome.textContent = "You win! Rock beats scissors!";
         humanScore = ++humanScore;
     }
     else if (humanChoice == "Paper" && computerChoice == "Rock") {
-        console.log("You win! Paper beats rock!");
+        //console.log("You win! Paper beats rock!");
+        let roundOutcome = document.querySelector("#roundOutcome");
+        roundOutcome.textContent = "You win! Paper beats rock!";
         humanScore = ++humanScore;
        
         
     }
     else if (humanChoice == "Scissors" && computerChoice == "Paper") {
-        console.log("You win! Scissors beats paper!");
+        //console.log("You win! Scissors beats paper!");
+        let roundOutcome = document.querySelector("#roundOutcome");
+        roundOutcome.textContent = "You win! Scissors beats paper!";
         humanScore = ++humanScore;
     }
     else if (humanChoice == computerChoice) {
-        console.log("Draw! Go again!");
+        //console.log("Draw! Go again!");
+        let roundOutcome = document.querySelector("#roundOutcome");
+        roundOutcome.textContent = "Draw! Go again!";
     }
     else {
-        console.log("You lose! Computer chose " + computerChoice + ". " + computerChoice + " beats " + humanChoice);
+        //console.log("You lose! Computer chose " + computerChoice + ". " + computerChoice + " beats " + humanChoice);
+        let roundOutcome = document.querySelector("#roundOutcome");
+        roundOutcome.textContent = "You lose! Computer chose " + computerChoice + ". " + computerChoice + " beats " + humanChoice;
         computerScore = ++computerScore;
     };
         updateDisplayedScore();
@@ -96,6 +106,16 @@ let computerDisplayedScore = document.querySelector("#computerDisplayedScore")
 
 computerDisplayedScore.textContent = `Computer Score: ${computerScore}`;
 
+//display roundOutcome on html
+let roundOutcome = document.querySelector("#roundOutcome");
+roundOutcome.textContent = "The score is 0-0.";
+
+function displayRoundOutcome() {
+    let roundOutcome = document.querySelector("#roundOutcome");
+    roundOutcome.textContent = "The score is 0-0.";
+}
+
+//function to update the score each time playRound is called (whenever the buttons are clicked)
 function updateDisplayedScore() {
     let humanDisplayedScore = document.querySelector("#humanDisplayedScore");
     humanDisplayedScore.textContent = `Player Score: ${humanScore}`;
