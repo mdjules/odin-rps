@@ -31,6 +31,7 @@ function getComputerChoice () {
 };*/
 
 function playRound (humanChoice, computerChoice) {
+    
     if (humanChoice == "Rock" && computerChoice == "Scissors") {
         console.log("You win! Rock beats scissors!");
         humanScore = ++humanScore;
@@ -38,6 +39,8 @@ function playRound (humanChoice, computerChoice) {
     else if (humanChoice == "Paper" && computerChoice == "Rock") {
         console.log("You win! Paper beats rock!");
         humanScore = ++humanScore;
+       
+        
     }
     else if (humanChoice == "Scissors" && computerChoice == "Paper") {
         console.log("You win! Scissors beats paper!");
@@ -48,30 +51,12 @@ function playRound (humanChoice, computerChoice) {
     }
     else {
         console.log("You lose! Computer chose " + computerChoice + ". " + computerChoice + " beats " + humanChoice);
-        computerScore = ++computerScore
-    }
-};
-
-//counter = 0
-
-function playGame () {
-    //while (counter < 6) {
-    //let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-    console.log("Human score is: " + humanScore);
-    console.log("Computer score is: " + computerScore);
-    //++counter;
-    //}
-
-    if (humanScore > computerScore) {
-        console.log("Congrats you beat the computer!");
-    }
-        else {
-            console.log("The computer beat you...better luck next time.");
-        };
-    ;
-};
+        computerScore = ++computerScore;
+    };
+        updateDisplayedScore();
+        checkForWinner();
+    
+    };
 
 //rock button event listener uses playRound() as callback function
 
@@ -97,6 +82,46 @@ scissorsBtn.addEventListener("click", function() {
     playRound("Scissors", getComputerChoice())
 });
 
-//playGame();
+const scoreTable = document.querySelector("#scoreTable");
+
+scoreTable.textContent = "Score Table:";
+
+//display human score on html
+let humanDisplayedScore = document.querySelector("#humanDisplayedScore");
+
+humanDisplayedScore.textContent = `Player Score: ${humanScore}`;
+
+//display computerScore score on html
+let computerDisplayedScore = document.querySelector("#computerDisplayedScore")
+
+computerDisplayedScore.textContent = `Computer Score: ${computerScore}`;
+
+function updateDisplayedScore() {
+    let humanDisplayedScore = document.querySelector("#humanDisplayedScore");
+    humanDisplayedScore.textContent = `Player Score: ${humanScore}`;
+
+    let computerDisplayedScore = document.querySelector("#computerDisplayedScore");
+    computerDisplayedScore.textContent = `Computer Score: ${computerScore}`;
+}
+
+//intro message
+let winner = document.querySelector("#winner");
+winner.textContent = "Welcome to Rock, Paper, Scissors! See if you can beat the computer!"
+
+function checkForWinner() {
+
+    if (humanScore == 5) {
+        let winner = document.querySelector("#winner");
+        winner.textContent = "You beat the computer!!!";
+    }
+    else if (computerScore == 5) {
+        let winner = document.querySelector("#winner");
+        winner.textContent = "The computer beat you!"
+    }
+    else {
+        let winner = document.querySelector("#winner");
+        winner.textContent = "Make a choice...First one to 5 wins!!";
+    }
+}
 
 //playRound();
