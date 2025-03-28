@@ -16,19 +16,6 @@ function getComputerChoice () {
 
 };
 
-//unnessary code. The buttons now serve as the function for getting humanc choice
-
-/*function getHumanChoice () {
-   let humanChoice = prompt("Choose rock, paper, or scissors: ").toLowerCase();
-   if (humanChoice == "rock") {
-    return "Rock"
-   } else if(humanChoice == "paper") {
-    return "Paper"
-   } else if (humanChoice == "scissors") {
-    return "Scissors"
-   }
-    
-};*/
 
 function playRound (humanChoice, computerChoice) {
     
@@ -132,16 +119,35 @@ function checkForWinner() {
 
     if (humanScore == 5) {
         let winner = document.querySelector("#winner");
-        winner.textContent = "You beat the computer!!!";
+        winner.textContent = "You beat the computer!!! Click the Reset Game button below to start another game!";
     }
     else if (computerScore == 5) {
         let winner = document.querySelector("#winner");
-        winner.textContent = "The computer beat you!"
+        winner.textContent = "The computer beat you! Click the Reset Game button below to start another game!";
     }
     else {
         let winner = document.querySelector("#winner");
         winner.textContent = "Make a choice...First one to 5 wins!!";
     }
 }
+
+//function to reset the game. Triggered when user clicks the reset button
+
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    updateDisplayedScore();
+    let winner = document.querySelector("#winner");
+    winner.textContent = "Welcome to Rock, Paper, Scissors! See if you can beat the computer!";
+
+    let roundOutcome = document.querySelector("#roundOutcome");
+    roundOutcome.textContent = "The score is 0-0."
+
+};
+
+let resetButton = document.querySelector("#resetButton");
+resetButton.addEventListener("click", function() {
+    resetGame()
+});
 
 //playRound();
